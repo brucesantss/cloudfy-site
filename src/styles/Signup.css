@@ -1,0 +1,32 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    border: 2px solid #27272A;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 14px;
+}
+
+.form h1{
+    margin-bottom: 0px;
+}
+
+.support{
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    margin-top: 5px;
+    gap: 22px;
+}
+

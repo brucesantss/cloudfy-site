@@ -1,0 +1,12 @@
+.label{
+    font-weight: 600;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label_input{
+    padding: 8px;
+    border: 2px solid #27272A;
+    border-radius: 8px;
+}

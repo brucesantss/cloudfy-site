@@ -1,0 +1,15 @@
+button{
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #27272A;
+
+    transition: 200ms ease-in-out;
+
+}
+
+button:hover{
+    color: #000;
+    background-color: #fff;
+    border: 2px solid transparent;
+}
