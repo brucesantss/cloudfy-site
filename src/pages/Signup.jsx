@@ -4,6 +4,9 @@ import { InputField } from '../components/InputField'
 import '../styles/Signup.css'
 import axios from 'axios'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 export const Signup = () => {
 
     const [formData, setFormData] = useState({
@@ -61,6 +64,8 @@ export const Signup = () => {
             <InputField onChange={value => HandleChange('confirmPass', value)} label='confirmar senha' type='password' placeholder='xxxx2024@#'/>
 
             <Button text='enviar' OnSubmit={HandleSubmit}/>
+
+            <span className="message">{message.message} <FontAwesomeIcon icon={faCoffee} /></span>
 
             <div className="support">
                 <span><a href="">já tenho conta</a></span>

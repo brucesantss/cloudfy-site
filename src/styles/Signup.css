@@ -22,6 +22,12 @@ body{
     margin-bottom: 0px;
 }
 
+.message{
+    color: #27272A;
+    display: flex;
+    justify-content: center;
+}
+
 .support{
     display: flex;
     justify-content: center;
