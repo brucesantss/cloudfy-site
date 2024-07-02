@@ -13,6 +13,11 @@ export const Signup = () => {
         confirmPass: ''
     });
 
+    const [message, setMessage] = useState({
+        statusCode: 0,
+        message: ''
+    });
+
     function HandleChange(field, value){
         setFormData({
             ...formData,
@@ -29,12 +34,15 @@ export const Signup = () => {
                 url: 'http://localhost:8080/signup',
                 data: formData
             })
-            .then(response => console.log(response))
+            .then(response => 
+                setMessage({ 
+                statusCode: response.status,  
+                message: response.data.message
+            }))
         }catch(err){
             console.log('erro: ' + err);
         }
-        
-        
+
     }
 
     return (
