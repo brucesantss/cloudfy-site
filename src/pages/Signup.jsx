@@ -65,11 +65,20 @@ export const Signup = () => {
 
             <Button text='enviar' OnSubmit={HandleSubmit}/>
 
-            <span className="message">{message.message} <FontAwesomeIcon icon={faCoffee} /></span>
+            
+            <span className='message'>
+                {
+                    (message.message === '' ? null : (
+                        <p>
+                            {message.message}  <FontAwesomeIcon icon={<faCoffee/>}/> 
+                        </p>
+                    ))
+                }
+            </span>
 
             <div className="support">
-                <span><a href="">já tenho conta</a></span>
-                <span><a href="">quero suporte</a></span>
+                <span><a href="/home">já tenho conta</a></span>
+                <span><a href="/home">quero suporte</a></span>
             </div>
 
         </form>
