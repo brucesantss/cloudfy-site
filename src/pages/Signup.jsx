@@ -31,7 +31,6 @@ export const Signup = () => {
     function HandleSubmit(e){
         e.preventDefault();
 
-        try{
             axios({
                 method: 'post',
                 url: 'http://localhost:8080/signup',
@@ -41,10 +40,13 @@ export const Signup = () => {
                 setMessage({ 
                 statusCode: response.status,  
                 message: response.data.message
-            }))
-        }catch(err){
-            console.log('erro: ' + err);
-        }
+            })).catch(err => {
+                setMessage({
+                    statusCode: err.response.status,
+                    message: err.response.data.message
+                })
+                console.log('erro' + err);
+            })
 
     }
 
