@@ -1,4 +1,4 @@
-button{
+.button-form{
     margin-top: 8px;
     padding: 8px;
     border-radius: 8px;
@@ -8,7 +8,7 @@ button{
 
 }
 
-button:hover{
+.button-form:hover{
     color: #000;
     background-color: #fff;
     border: 2px solid transparent;

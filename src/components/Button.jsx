@@ -2,7 +2,7 @@ import '../styles/Button.css'
 
 export const Button = ({text, OnSubmit}) => {
     return(
-        <button onClick={OnSubmit}>
+        <button className='button-form' onClick={OnSubmit}>
             {text}
         </button>
     )

@@ -1,12 +1,32 @@
-.label{
+.label {
+    width: 100%;
     font-weight: 600;
     gap: 8px;
     display: flex;
     flex-direction: column;
 }
 
-.label_input{
+.input-label {
+    position: relative;
+    width: 100%;
+}
+
+.label_input {
+    width: 100%;
     padding: 8px;
     border: 2px solid #27272A;
     border-radius: 8px;
+    padding-right: 40px; /* Espaço para o ícone */
 }
+
+.eye {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem; /* Tamanho do ícone */
+    color: #27272A; /* Cor do ícone */
+}
+

@@ -26,6 +26,7 @@ body{
     color: #27272A;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .support{

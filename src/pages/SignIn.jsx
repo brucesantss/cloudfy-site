@@ -4,13 +4,11 @@ import { InputField } from '../components/InputField'
 import '../styles/Signup.css'
 import axios from 'axios'
 
-export const Signup = () => {
+export const SignIn = () => {
 
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
         pass: '',
-        confirmPass: ''
     });
 
     const [message, setMessage] = useState({
@@ -30,7 +28,7 @@ export const Signup = () => {
 
             axios({
                 method: 'post',
-                url: 'http://localhost:8080/signup',
+                url: 'http://localhost:8080/signin',
                 data: formData
             })
             .then(response => 
@@ -50,17 +48,14 @@ export const Signup = () => {
     return (
 
         <form className='form'>
-            <h1>criar conta.</h1>
+            <h1>entrar na conta.</h1>
             <p>faça a diferença.</p>
 
-            {/* nome completo */}
-            <InputField onChange={value => HandleChange('name', value)} label='nome completo' type='text' placeholder='Elon Musk da Silva'/>
+            
             {/* email */}
             <InputField onChange={value => HandleChange('email', value)} label='email' type='email' placeholder='xxxx@xxxxx.com'/>
             {/* senha */}
             <InputField onChange={value => HandleChange('pass', value)} label='senha' type='password' placeholder='xxxx2024@#'/>
-            {/* confimar senha */}
-            <InputField onChange={value => HandleChange('confirmPass', value)} label='confirmar senha' type='password' placeholder='xxxx2024@#'/>
 
             <Button text='enviar' OnSubmit={HandleSubmit}/>
 
