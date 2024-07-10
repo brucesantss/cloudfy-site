@@ -3,9 +3,11 @@ import { Button } from '../components/Button'
 import { InputField } from '../components/InputField'
 import '../styles/Signup.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -32,11 +34,18 @@ export const SignIn = () => {
                 url: 'http://localhost:8080/signin',
                 data: formData
             })
-            .then(response => 
+            .then(response => {
                 setMessage({ 
                 statusCode: response.status,  
                 message: response.data.message
-            })).catch(err => {
+            })
+        
+            if(response.status === 200){
+                navigate('/home')
+            }
+
+        })
+            .catch(err => {
                 setMessage({
                     statusCode: err.response.status,
                     message: err.response.status === 404 ? 'essa conta não existe. criar conta?' : err.response.data.message
