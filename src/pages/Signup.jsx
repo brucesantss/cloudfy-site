@@ -76,7 +76,7 @@ export const Signup = () => {
             </span>
 
             <div className="support">
-                <span><a href="/home">já tenho conta</a></span>
+                <span><a href="/signin">já tenho conta</a></span>
                 <span><a href="/home">quero suporte</a></span>
             </div>
 

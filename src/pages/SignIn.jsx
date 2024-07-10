@@ -3,6 +3,7 @@ import { Button } from '../components/Button'
 import { InputField } from '../components/InputField'
 import '../styles/Signup.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 export const SignIn = () => {
 
@@ -38,7 +39,7 @@ export const SignIn = () => {
             })).catch(err => {
                 setMessage({
                     statusCode: err.response.status,
-                    message: err.response.data.message
+                    message: err.response.status === 404 ? 'essa conta não existe. criar conta?' : err.response.data.message
                 })
                 console.log('erro' + err);
             })
@@ -64,14 +65,18 @@ export const SignIn = () => {
                 {
                     (message.message === '' ? null : (
                         <p>
-                            {message.message} 
+                            {message.message === 'essa conta não existe. criar conta?' ? (
+                                <span>essa conta não existe. <Link to="/signup">criar conta?</Link></span>        
+                            ) : (
+                                message.message
+                            )} 
                         </p>
                     ))
                 }
             </span>
 
             <div className="support">
-                <span><a href="/home">já tenho conta</a></span>
+                <span><a href="/signup">criar conta</a></span>
                 <span><a href="/home">quero suporte</a></span>
             </div>
 
