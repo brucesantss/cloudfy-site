@@ -1,86 +1,26 @@
-import { useState } from 'react'
-import { Button } from '../components/Button'
-import { InputField } from '../components/InputField'
 import '../styles/Signup.css'
-import axios from 'axios'
+import { Form } from '../components/Form.jsx'
 
 export const Signup = () => {
 
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        pass: '',
-        confirmPass: ''
-    });
+    const fields = [
+        { name: 'name', label: 'nome', type: 'text', placeholder: 'Elon Musk da Silva' },
+        { name: 'email', label: 'email', type: 'email', placeholder: 'xxxx@xxxxx.com' },
+        { name: 'pass', label: 'senha', type: 'password', placeholder: 'xxxx2024@#' },
+        { name: 'confirmPass', label: 'confirmar senha', type: 'password', placeholder: 'xxxx2024@#' }
+    ]
 
-    const [message, setMessage] = useState({
-        statusCode: 0,
-        message: ''
-    });
-
-    function HandleChange(field, value){
-        setFormData({
-            ...formData,
-            [field]: value
-        })
-    }
-
-    function HandleSubmit(e){
-        e.preventDefault();
-
-            axios({
-                method: 'post',
-                url: 'http://localhost:8080/signup',
-                data: formData
-            })
-            .then(response => 
-                setMessage({ 
-                statusCode: response.status,  
-                message: response.data.message
-            })).catch(err => {
-                setMessage({
-                    statusCode: err.response.status,
-                    message: err.response.data.message
-                })
-                console.log('erro' + err);
-            })
-
-    }
+    const links = [
+        {href: '/signin', text: 'já tenho conta'},
+        {href: '/home', text: 'esqueci a senha'}
+    ]
 
     return (
-
-        <form className='form'>
-            <h1>criar conta.</h1>
-            <p>faça a diferença.</p>
-
-            {/* nome completo */}
-            <InputField onChange={value => HandleChange('name', value)} label='nome completo' type='text' placeholder='Elon Musk da Silva'/>
-            {/* email */}
-            <InputField onChange={value => HandleChange('email', value)} label='email' type='email' placeholder='xxxx@xxxxx.com'/>
-            {/* senha */}
-            <InputField onChange={value => HandleChange('pass', value)} label='senha' type='password' placeholder='xxxx2024@#'/>
-            {/* confimar senha */}
-            <InputField onChange={value => HandleChange('confirmPass', value)} label='confirmar senha' type='password' placeholder='xxxx2024@#'/>
-
-            <Button text='enviar' OnSubmit={HandleSubmit}/>
-
-            
-            <span className='message'>
-                {
-                    (message.message === '' ? null : (
-                        <p>
-                            {message.message} 
-                        </p>
-                    ))
-                }
-            </span>
-
-            <div className="support">
-                <span><a href="/signin">já tenho conta</a></span>
-                <span><a href="/home">quero suporte</a></span>
-            </div>
-
-        </form>
-
-    )
-}
+            <Form
+                title={'criar conta.'}
+                fields={fields}
+                submitUrl={'http://localhost:8080/signup'}
+                navigateTo={'/signin'}
+                links={links}
+            />
+)}
